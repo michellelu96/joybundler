@@ -37,19 +37,19 @@
 		<c:out value="${babyName.meaning }" />
 	</p>
 	<c:choose>
-							<c:when test="${ babyName.likedUsers.contains(user)}">
-								<p>You voted for this name </p>
-							</c:when>
-							<c:otherwise>
-								<form action="/names/${babyName.id }/like" method="post">
-									<input type="hidden" name="_method" value="put" />
-									<button class="btn">Like!</button>
-								</form>
+		<c:when test="${ babyName.likedUsers.contains(user)}">
+			<p>You voted for this name</p>
+		</c:when>
+		<c:otherwise>
+			<form action="/names/${babyName.id }/like" method="post">
+				<input type="hidden" name="_method" value="put" />
+				<button class="btn">Like!</button>
+			</form>
 
-							</c:otherwise>
-						</c:choose>
-		<c:if test="${user_id == babyName.user.id }">
-			<a href="/names/${babyName.id }/edit" class="button">Edit</a>
-		</c:if>
+		</c:otherwise>
+	</c:choose>
+	<c:if test="${user_id == babyName.user.id }">
+		<a href="/names/${babyName.id }/edit" class="button">Edit</a>
+	</c:if>
 </body>
 </html>
